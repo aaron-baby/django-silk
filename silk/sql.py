@@ -90,7 +90,7 @@ def execute_sql(self, *args, **kwargs):
             if request:
                 query_dict['request'] = request
             if self.query.model.__module__ != 'silk.models':
-                query_dict['analysis'] = _explain_query(self.connection, q, params)
+                query_dict['analysis'] = None#_explain_query(self.connection, q, params)
                 DataCollector().register_query(query_dict)
             else:
                 DataCollector().register_silk_query(query_dict)
